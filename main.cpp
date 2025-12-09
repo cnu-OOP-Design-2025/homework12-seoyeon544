@@ -6,31 +6,49 @@
 using namespace std;
 
 void equip_test1(shared_ptr<Character> c1) {
-    c1 = make_shared<Armor>(c1);
-    c1 = make_shared<Boots>(c1);
-    c1 = make_shared<Sword>(c1);
-    cout << c1->getDescription()
-        << " | Attack: " << c1->getAttack()
-        << " | Speed: " << c1->getSpeed()
-        << " | Defense: " << c1->getDefense() << endl;
+    try{
+        c1 = make_shared<Armor>(c1);
+        c1 = make_shared<Boots>(c1);
+        c1 = make_shared<Sword>(c1);
+        cout << c1->getDescription()
+            << " | Attack: " << c1->getAttack()
+            << " | Speed: " << c1->getSpeed()
+            << " | Defense: " << c1->getDefense() << endl;
+    }
+    catch(const exception& e){
+        Logger:: getInstance() -> log("[Fail to Equip] ");
+        cout << "Invalid equip: " << e.what() << endl;
+    }
 }
 
 void equip_test2(shared_ptr<Character> c1) {
-    c1 = make_shared<Armor>(c1);
-    c1 = make_shared<Bow>(c1);
-    cout << c1->getDescription()
-        << " | Attack: " << c1->getAttack()
-        << " | Speed: " << c1->getSpeed()
-        << " | Defense: " << c1->getDefense() << endl;
+    try{
+        c1 = make_shared<Armor>(c1);
+        c1 = make_shared<Bow>(c1);
+        cout << c1->getDescription()
+            << " | Attack: " << c1->getAttack()
+            << " | Speed: " << c1->getSpeed()
+            << " | Defense: " << c1->getDefense() << endl;
+    }
+    catch(const exception& e){
+        Logger :: getInstance() -> log("[Fail to Equip] ");
+        cout << "Invalid equip: "<<e.what() << endl;
+    }        
 }
 
 void equip_test3(shared_ptr<Character> c1) {
-    c1 = make_shared<Boots>(c1);
-    c1 = make_shared<Staff>(c1);
-    cout << c1->getDescription()
-        << " | Attack: " << c1->getAttack()
-        << " | Speed: " << c1->getSpeed()
-        << " | Defense: " << c1->getDefense() << endl;
+    try{
+        c1 = make_shared<Boots>(c1);
+        c1 = make_shared<Staff>(c1);
+        cout << c1->getDescription()
+            << " | Attack: " << c1->getAttack()
+            << " | Speed: " << c1->getSpeed()
+            << " | Defense: " << c1->getDefense() << endl;
+    }
+    catch(const exception& e){
+        Logger :: getInstance() -> log("[Fail to Equip] ");
+        cout<<"Invalid equip: " <<e.what() << endl;
+    }
 }
 
 void doTest() {
